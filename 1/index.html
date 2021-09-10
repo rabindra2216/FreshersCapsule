@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TELE/VIDEO</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/7b9f90861e.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <div class="head">
+       <div class="title"><h1>FRESHERS CAPSULE</h1></div>
+
+       <div class="nav" id="nav">
+          <ul>
+             <li> <a class="s" href="../index.html">Home</a></li>
+             <li><a class="s" href="#">About</a></li>
+             <li><a class="s" href="https://docs.google.com/document/d/1fMjnzyZGIh9jpGgDAz-nq3IC0OU1xB3lXjeYW9YvVjk/edit">Services</a></li>
+             <li><a class="s" href="../c/index.html">Contact Us</a></li>
+             <li><a class="s" href="../form.html">Register</a></li>
+          </ul>
+       </div>
+    </div>
+    <div class="box" id="box">
+
+        </div>
+        <h1 id="loading">Loading...</h1>
+ <div class="link">
+   <div class="s">
+     <span>Follow Us On</span>
+   </div>
+  <div class="">
+    <a class="s1" href="https://youtube.com/channel/UCzoW2wYh6FckWUaJ30YZ6oQ"><i class="fab fa-youtube"></i></a>
+    <a class="s1" href="https://www.linkedin.com/in/rabindra-yadav-727b421b1"> <i class="fab fa-linkedin"></i></a>
+    <a class="s1" href="https://t.me/fresherscap"><i class="fab fa-telegram"></i></a>
+    <a class="s1" href="https://www.instagram.com/invites/contact/?i=8fwt587tcp9v&utm_content=3radj84"> <i class="fab fa-instagram"></i></a>
+   <br>
+   </div>
+ </div>
+ <div class="last">
+   <div class="la">
+     <p class="la">© Copyright 2021 SOFT SKILLS/FRESHER'S CAPSULES</p>
+   </div>
+
+ </div>
+
+       <script type="text/javascript">
+
+fetch("https://cryptic-escarpment-32785.herokuapp.com/interviews/getInterviewById/612db7ca16e52d43582dba59")
+  .then(res => res.json())
+  .then(data => {
+    if(data.success === true){
+      document.getElementById("loading").innerHTML = "";
+      document.getElementById("loading").classList = [];
+      const interview = data.data[0];
+    document.getElementById("box").innerHTML = `
+    <img src="img/1.webp" alt="">
+      <h2 style="text-align:center;">${interview.title}</h2>
+      <br>
+       <p>${interview.description}</p>
+  <br>
+       <h5>Pros</h5>
+        ${interview.pros.map(pro => `<li>${pro}</li>`)}
+        <h5>Cons</h5>
+        ${interview.cons.map(con => `<li>${con}</li>`)}
+       <br>
+       <hr>
+
+        <div class="QA">
+          <ol>
+            <a href="https://forms.gle/GBfUHsiZMZXgXP4X8">1.Telephone Interview Tips</a>
+          </ol>
+          <ol>
+            <a href="https://forms.gle/GBfUHsiZMZXgXP4X8">2.Best Telephone Interview Questions</a>
+          </ol>
+          <ol>
+            <a href="https://forms.gle/GBfUHsiZMZXgXP4X8">3.Best Telephone Interview Answers  </a>
+          </ol>
+          <ol>
+            <a href="https://forms.gle/GBfUHsiZMZXgXP4X8">4.Common Interview Questions & Answers</a>
+          </ol>`}})
+         var nav = document.getElementById('nav');
+
+           window.onscroll = function () {
+
+             if(window.pageYOffset > 100){
+
+              nav.style.position = "fixed";
+              nav.style.top = 0;
+
+              }else{
+                // nav.style.position = "absolute";
+                nav.style.position = 'relative'; //fixed
+                nav.style.top = 100;
+              }
+           }
+
+       </script>
+    </div>
+  </body>
+</html>

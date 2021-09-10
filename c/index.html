@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+  <form id="contact">
+    <h3>FRESH CAP </h3>
+    <h4>Get in touch</h4>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" id="name" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" id="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number (optional)" type="tel" id="tel" tabindex="3" required>
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="Type your message here...." id="message" tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+    <p class="copyright">Designed by <a href="rabindrayadav2216@gmail.com" target="_blank" title="Fresh Cap">Fresh Cap</a></p>
+  <script>
+let exampleForm =  document.querySelector('#contact');
+exampleForm.addEventListener('submit', event => {
+
+  // Prevent the default behavior of the submit button
+  event.preventDefault();
+
+  // Handle the HTML form data here!
+
+  let name = document.querySelector('#name').value;
+  let email = document.querySelector('#email').value;
+  let tel = document.querySelector('#tel').value;
+  let message = document.querySelector('#message').value;
+
+  fetch("https://cryptic-escarpment-32785.herokuapp.com/contacts/addContacts", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+    name,
+    email,
+    phone: tel,
+    message
+})
+}).then(res => res.json())
+.then(data => {
+  if(data.success === true) {alert("Message Sent Successfully! Hold on for the answer!")
+  document.querySelector('#name').value = "";
+  document.querySelector('#email').value = "";
+  document.querySelector('#tel').value = "";
+  document.querySelector('#message').value = ""}
+})
+
+});
+  </script>
+  </body>
+</html>

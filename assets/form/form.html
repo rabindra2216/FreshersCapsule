@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form" action="#">
+                <input type="text" placeholder="Username">
+                <input type="text" placeholder="Password">
+                <input type="text" placeholder="Email id">
+                <button>Create</button>
+                <p class="message">Already Registered? <a href="#">Login</a></p>
+            </form>
+
+            <form  action="#" class="login-form">
+                <input type="text" placeholder="Username">
+                <input type="text" placeholder="Password">
+                <button>Login</button>
+                <p class="message">Not Registered? <a href="#">Register</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(' .message a ').click(function()
+        {
+            $('form').animate({height: "toggle",opacity:"toggle"},"slow");
+        })
+    </script>
+
+</body>
+</html>
